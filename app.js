@@ -46,4 +46,4 @@ app.addHook("preHandler", async (request, reply) => {
     setAuthorizationHeader(authorizationHeader);
 });
 
-app.listen({ port: cfg.port });
+app.listen({ port: 5000 || process.env.PORT });
