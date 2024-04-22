@@ -164,8 +164,6 @@ const resolvers = {
   AdminSignup: async (args) => {
     try {
       const db = await dbRtns.getDBInstance();
-
-      console.log(args.adminName);
       /*Validation*/
       var message = "";
       if (args.adminName == "" || args.adminName == undefined) {
@@ -191,17 +189,11 @@ const resolvers = {
         password: hashedPassword, // Store hashed password
       };
 
-      console.log(authData);
-
       const token = jwt.sign({ email: args.email }, cfg.jwtSecret, {
         expiresIn: "1h",
       });
 
-      console.log(token);
-
       let authResult = await dbRtns.addOne(db, "ADMINAUTH", authData);
-
-      console.log(authResult);
 
       return { token, admin: authData };
     } catch (error) {
@@ -228,8 +220,6 @@ const resolvers = {
           errorMessage: message,
         };
       }
-
-      console.log(args);
       const db = await dbRtns.getDBInstance();
       const admin = await dbRtns.findOne(db, "ADMINAUTH", {
         adminName: args.adminName,
