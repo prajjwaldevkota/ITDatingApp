@@ -1,7 +1,7 @@
 import { config } from "dotenv";
 config();
 export const collection = process.env.AUTH;
-// export const port = process.env.PORT;
+export const port = process.env.PORT || 3000;
 export const graphql = process.env.GRAPHQLURL;
 export const appdb = process.env.DB;
 export const userAuth = process.env.DBURL;
