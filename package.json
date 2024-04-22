@@ -26,6 +26,6 @@
   "author": "Sambhav Timalsina, Prajjwal Devkota, Stanley Dominic",
   "license": "ISC",
   "engines": {
-    "node": "20.0"
+    "node": "20.12.2"
   }
 }
